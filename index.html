@@ -41,10 +41,12 @@
       text-shadow: 0 0 8px #5a189a;
     }
 
-    p {
+    #message {
       font-size: 18px;
       color: #d0c4f7;
       line-height: 1.6;
+      white-space: pre-wrap; /* preserve line breaks */
+      text-align: left;
     }
 
     .highlight {
@@ -57,6 +59,7 @@
       font-size: 22px;
       animation: pulse 1.5s infinite;
       text-shadow: 0 0 10px #4cc9f0;
+      margin-top: 15px;
     }
 
     @keyframes pulse {
@@ -120,20 +123,35 @@
 
   <div class="card">
     <h1>💌 Para sa Aking Matcha 💌</h1>
-    <p>
-      <span class="highlight">Hi Diana,</span>, I want to say even you don’t like me I will wait for you cause I like you very much. I’ll be here for you. Please let me court you to prove that I’m in-love on you. I’ll do anything for you I want to be with you. All you want I will do my best to provide you. Even your heart is close I’m here waiting to take a chance once you open it.
-
-
-Happy Valentine’s day my beautiful crush! Hoping you’ll give me a chance to your heart. Always take care of yourself, when you’re tired don’t forget to rest. If you need help I’m here.
-
-
-And Diana, you are my “tahanan” my home. Just like in the song, I promise to fight for you and never give up, no matter how many times I stumble. When you feel lost, just look into my eyes and you’ll see a love that will never run out. I will stand by you through every trial, because my heart has already chosen you.
-
-
-Even if the world gets heavy, I’ll carry it with you. Even if doubts come, I’ll hold on, because you are the place where I find peace, the one I’ll always return to. My love for you will not change it will only grow stronger, until the day you let me be the home of your heart.
-    </p>
+    <p id="message"></p>
     <p class="heart">💜</p>
     <div class="footer">Isang tapat na mensahe mula sa puso ✨</div>
   </div>
+
+  <script>
+    const text = `Hi Diana, I want to say even you don’t like me I will wait for you cause I like you very much. I’ll be here for you. Please let me court you to prove that I’m in-love on you. I’ll do anything for you I want to be with you. All you want I will do my best to provide you. Even your heart is close I’m here waiting to take a chance once you open it.
+
+Happy Valentine’s day my beautiful crush! Hoping you’ll give me a chance to your heart. Always take care of yourself, when you’re tired don’t forget to rest. If you need help I’m here.
+
+And Diana, you are my “tahanan” my home. Just like in the song, I promise to fight for you and never give up, no matter how many times I stumble. When you feel lost, just look into my eyes and you’ll see a love that will never run out. I will stand by you through every trial, because my heart has already chosen you.
+
+Even if the world gets heavy, I’ll carry it with you. Even if doubts come, I’ll hold on, because you are the place where I find peace, the one I’ll always return to. My love for you will not change it will only grow stronger, until the day you let me be the home of your heart.`;
+
+    let i = 0;
+    const speed = 40; // typing speed in ms
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    // Add 4-second delay before typing starts
+    window.onload = function() {
+      setTimeout(typeWriter, 4000);
+    };
+  </script>
 </body>
 </html>
