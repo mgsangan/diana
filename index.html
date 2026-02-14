@@ -14,6 +14,7 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      flex-direction: column;
     }
 
     .card {
@@ -47,11 +48,6 @@
       line-height: 1.6;
       white-space: pre-wrap; /* preserve line breaks */
       text-align: left;
-    }
-
-    .highlight {
-      color: #4cc9f0;
-      font-weight: bold;
     }
 
     .heart {
@@ -105,14 +101,38 @@
       80% { opacity: 0.6; }
       100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
     }
+
+    /* Play button */
+    #playBtn {
+      background: #4cc9f0;
+      color: #0d0d0d;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px #9d4edd;
+      transition: transform 0.2s;
+    }
+
+    #playBtn:hover {
+      transform: scale(1.05);
+      background: #9d4edd;
+      color: #fff;
+    }
   </style>
 </head>
 <body>
   <!-- Background music -->
-  <audio autoplay loop>
+  <audio id="bg-music" loop>
     <source src="tahanan.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <!-- Play button -->
+  <button id="playBtn">▶ Play Message & Music</button>
 
   <!-- Floating hearts -->
   <div class="floating-heart" style="left:10%; animation-duration:12s;"></div>
@@ -142,16 +162,24 @@ Even if the world gets heavy, I’ll carry it with you. Even if doubts come, I�
 
     function typeWriter() {
       if (i < text.length) {
-        document.getElementById("message").innerHTML += taext.charAt(i);
+        document.getElementById("message").innerHTML += text.charAt(i);
         i++;
         setTimeout(typeWriter, speed);
       }
     }
 
-    // Add 4-second delay before typing starts
-    window.onload = function() {
-      setTimeout(typeWriter, 4100);
-    };
+    document.getElementById("playBtn").addEventListener("click", () => {
+      const music = document.getElementById("bg-music");
+      music.muted = false;
+      music.volume = 1;
+      music.play();
+
+      // Start typing after 4 seconds
+      setTimeout(typeWriter, 4000);
+
+      // Hide button after click
+      document.getElementById("playBtn").style.display = "none";
+    });
   </script>
 </body>
 </html>
