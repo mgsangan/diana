@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweet Message</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a40, #3b0a45);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(20, 20, 40, 0.85);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(120, 80, 200, 0.6);
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+      color: #9d4edd;
+      font-size: 28px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 8px #5a189a;
+    }
+
+    p {
+      font-size: 18px;
+      color: #d0c4f7;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: #4cc9f0;
+      font-weight: bold;
+    }
+
+    .heart {
+      color: #9d4edd;
+      font-size: 22px;
+      animation: pulse 1.5s infinite;
+      text-shadow: 0 0 10px #4cc9f0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* Floating hearts background */
+    .floating-heart {
+      position: absolute;
+      bottom: -20px;
+      width: 20px;
+      height: 20px;
+      background: #4cc9f0;
+      transform: rotate(45deg);
+      animation: rise 10s linear infinite;
+      opacity: 0.4;
+    }
+
+    .floating-heart::before,
+    .floating-heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #9d4edd;
+      border-radius: 50%;
+    }
+
+    .floating-heart::before { top: -10px; left: 0; }
+    .floating-heart::after { left: -10px; top: 0; }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(45deg); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.6; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="tahanan.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating hearts -->
+  <div class="floating-heart" style="left:10%; animation-duration:12s;"></div>
+  <div class="floating-heart" style="left:30%; animation-duration:15s;"></div>
+  <div class="floating-heart" style="left:50%; animation-duration:10s;"></div>
+  <div class="floating-heart" style="left:70%; animation-duration:14s;"></div>
+  <div class="floating-heart" style="left:85%; animation-duration:13s;"></div>
+
+  <div class="card">
+    <h1>💌 Para sa Aking Matcha 💌</h1>
+    <p>
+      <span class="highlight">Hi Diana,</span>, I want to say even you don’t like me I will wait for you cause I like you very much. I’ll be here for you. Please let me court you to prove that I’m in-love on you. I’ll do anything for you I want to be with you. All you want I will do my best to provide you. Even your heart is close I’m here waiting to take a chance once you open it.
+
+
+Happy Valentine’s day my beautiful crush! Hoping you’ll give me a chance to your heart. Always take care of yourself, when you’re tired don’t forget to rest. If you need help I’m here.
+
+
+And Diana, you are my “tahanan” my home. Just like in the song, I promise to fight for you and never give up, no matter how many times I stumble. When you feel lost, just look into my eyes and you’ll see a love that will never run out. I will stand by you through every trial, because my heart has already chosen you.
+
+
+Even if the world gets heavy, I’ll carry it with you. Even if doubts come, I’ll hold on, because you are the place where I find peace, the one I’ll always return to. My love for you will not change it will only grow stronger, until the day you let me be the home of your heart.
+    </p>
+    <p class="heart">💜</p>
+    <div class="footer">Isang tapat na mensahe mula sa puso ✨</div>
+  </div>
+</body>
+</html>
